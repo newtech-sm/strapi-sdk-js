@@ -307,6 +307,7 @@ export class Strapi {
    *
    * @param  {string} contentType - Content type's name pluralized
    * @param  {StrapiRequestParams} params? - Query parameters
+   * @param  {AxiosRequestConfig} axiosConfig? - Custom Axios config
    * @returns Promise<StrapiResponse<T>>
    */
   public find<T>(
@@ -326,6 +327,7 @@ export class Strapi {
    * @param  {string} contentType - Content type's name pluralized
    * @param  {string|number} id - ID of entry
    * @param  {StrapiBaseRequestParams} params? - Fields selection & Relations population
+   * @param  {AxiosRequestConfig} axiosConfig? - Custom Axios config
    * @returns Promise<StrapiResponse<T>>
    */
   public findOne<T>(
@@ -346,6 +348,7 @@ export class Strapi {
    * @param  {string} contentType - Content type's name pluralized
    * @param  {AxiosRequestConfig["data"]} data - New entry
    * @param  {StrapiBaseRequestParams} params? - Fields selection & Relations population
+   * @param  {AxiosRequestConfig} axiosConfig? - Custom Axios config
    * @returns Promise<StrapiResponse<T>>
    */
   public create<T>(
@@ -368,6 +371,7 @@ export class Strapi {
    * @param  {string|number} id - ID of entry to be updated
    * @param  {AxiosRequestConfig["data"]} data - New entry data
    * @param  {StrapiBaseRequestParams} params? - Fields selection & Relations population
+   * @param  {AxiosRequestConfig} axiosConfig? - Custom Axios config
    * @returns Promise<StrapiResponse<T>>
    */
   public update<T>(
@@ -390,6 +394,7 @@ export class Strapi {
    * @param  {string} contentType - Content type's name pluralized
    * @param  {string|number} id - ID of entry to be deleted
    * @param  {StrapiBaseRequestParams} params? - Fields selection & Relations population
+   * @param  {AxiosRequestConfig} axiosConfig? - Custom Axios config
    * @returns Promise<StrapiResponse<T>>
    */
   public delete<T>(
