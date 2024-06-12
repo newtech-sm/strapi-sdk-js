@@ -311,9 +311,11 @@ export class Strapi {
    */
   public find<T>(
     contentType: string,
-    params?: StrapiRequestParams
+    params?: StrapiRequestParams,
+    axiosConfig?: AxiosRequestConfig
   ): Promise<StrapiResponse<T>> {
     return this.request<StrapiResponse<T>>("get", `/${contentType}`, {
+      ...axiosConfig,
       params,
     });
   }
@@ -329,9 +331,11 @@ export class Strapi {
   public findOne<T>(
     contentType: string,
     id: string | number,
-    params?: StrapiBaseRequestParams
+    params?: StrapiBaseRequestParams,
+    axiosConfig?: AxiosRequestConfig
   ): Promise<StrapiResponse<T>> {
     return this.request<StrapiResponse<T>>("get", `/${contentType}/${id}`, {
+      ...axiosConfig,
       params,
     });
   }
@@ -347,9 +351,11 @@ export class Strapi {
   public create<T>(
     contentType: string,
     data: AxiosRequestConfig["data"],
-    params?: StrapiBaseRequestParams
+    params?: StrapiBaseRequestParams,
+    axiosConfig?: AxiosRequestConfig
   ): Promise<StrapiResponse<T>> {
     return this.request<StrapiResponse<T>>("post", `/${contentType}`, {
+      ...axiosConfig,
       data: { data },
       params,
     });
@@ -368,9 +374,11 @@ export class Strapi {
     contentType: string,
     id: string | number,
     data: AxiosRequestConfig["data"],
-    params?: StrapiBaseRequestParams
+    params?: StrapiBaseRequestParams,
+    axiosConfig?: AxiosRequestConfig
   ): Promise<StrapiResponse<T>> {
     return this.request<StrapiResponse<T>>("put", `/${contentType}/${id}`, {
+      ...axiosConfig,
       data: { data },
       params,
     });
@@ -387,9 +395,11 @@ export class Strapi {
   public delete<T>(
     contentType: string,
     id: string | number,
-    params?: StrapiBaseRequestParams
+    params?: StrapiBaseRequestParams,
+    axiosConfig?: AxiosRequestConfig
   ): Promise<StrapiResponse<T>> {
     return this.request<StrapiResponse<T>>("delete", `/${contentType}/${id}`, {
+      ...axiosConfig,
       params,
     });
   }
