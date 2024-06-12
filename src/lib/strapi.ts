@@ -73,7 +73,8 @@ export class Strapi {
     // create axios instance
     this.axios = axios.create({
       baseURL: joinURL(this.options.url, this.options.prefix),
-      paramsSerializer: qs.stringify,
+      paramsSerializer: (params) =>
+        qs.stringify(params, { encodeValuesOnly: true }),
       ...this.options.axiosOptions,
     });
 
@@ -81,10 +82,7 @@ export class Strapi {
     this.axios.interceptors.request.use((config) => {
       const token = this.getToken();
       if (token) {
-        config.headers = {
-          ...config.headers,
-          Authorization: `Bearer ${token}`,
-        };
+        config.headers.setAuthorization(`Bearer ${token}`);
       }
 
       return config;
