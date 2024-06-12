@@ -13,7 +13,8 @@ export type StrapiAuthProvider =
   | "vk"
   | "linkedin"
   | "reddit"
-  | "auth0";
+  | "auth0"
+  | "microsoft";
 
 export type StrapiLocale =
   | "af"
